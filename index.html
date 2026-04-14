@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>내게 맞는 우유/유제품</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <button class="topbtn" id="btnBack" type="button">← 뒤로</button>
+      <div class="topbar-spacer"></div>
+      <div class="topbar-actions">
+        <button class="topbtn" id="btnHome" type="button">🏠 홈</button>
+        <button class="topbtn" id="btnFull" type="button">⛶ 전체화면</button>
+      </div>
+    </header>
+
+    <audio id="sfxClick" src="sounds/boing.mp3" preload="auto"></audio>
+    <audio id="sfxTada" src="sounds/tada.mp3" preload="auto"></audio>
+
+    <!-- HOME -->
+    <section id="screen-home" class="screen active">
+      <div class="card home-card kiosk-home">
+        <div class="home-title">내게 맞는 우유/유제품</div>
+
+        <div class="home-hero">
+          <img src="images/home-hero.png" alt="우유/유제품 추천 테스트 안내 이미지">
+        </div>
+
+        <div class="home-actions">
+          <button class="btn primary big xl" id="btnStart" type="button">테스트 시작하기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="screen-quiz" class="screen">
+      <div class="card quiz-card">
+        <div class="quiz-top">
+          <div class="progress" id="progressText">STEP 1 / 5</div>
+          <div class="badge" id="stepBadge">STEP 1. 소화 편안함 체크</div>
+        </div>
+
+        <div class="quiz-layout">
+          <div class="quiz-left">
+            <div class="q-media show" id="qMedia">
+              <img id="qImage" alt="" />
+            </div>
+          </div>
+
+          <div class="quiz-right">
+            <h2 class="q-title" id="qTitle"></h2>
+            <p class="q-desc" id="qDesc"></p>
+            <div class="choices" id="choices"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="screen-result" class="screen">
+      <div class="card result-card">
+        <h1 class="result-title">결과</h1>
+
+        <div class="result-layout">
+
+          <!-- 왼쪽 -->
+          <div class="result-left">
+            <div class="result-kicker">당신의 우유/유제품 타입은</div>
+            <div class="result-type" id="resultName"></div>
+            <div class="result-sub" id="resultSub"></div>
+
+            <div class="result-hero">
+              <img id="resultIcon" class="result-heroIcon" alt="결과 이미지" />
+            </div>
+          </div>
+
+          <!-- 오른쪽 -->
+          <div class="result-right">
+            <div class="guide-title">이렇게 드시면 좋아요</div>
+
+            <div class="guide-grid">
+              <div class="guide-card">
+                <div class="guide-label">1회 권장량</div>
+                <div class="guide-value" id="guideAmount">150~200ml</div>
+                <div class="guide-desc">처음에는 적은 양부터 시작해도 괜찮아요.</div>
+              </div>
+
+              <div class="guide-card">
+                <div class="guide-label">권장 시간</div>
+                <div class="guide-value" id="guideTime">아침 / 간식</div>
+                <div class="guide-desc">생활 패턴에 맞는 시간에 꾸준히 드셔보세요.</div>
+              </div>
+
+              <div class="guide-card">
+                <div class="guide-label">소화 안내</div>
+                <div class="guide-value" id="guideDigest">부담 적음</div>
+                <div class="guide-desc">속이 불편하면 소량부터 천천히 늘려보세요.</div>
+              </div>
+
+              <div class="guide-card">
+                <div class="guide-label">섭취 방법</div>
+                <div class="guide-value" id="guideMethod">그대로 / 함께</div>
+                <div class="guide-desc">빵, 시리얼, 요거트와 함께 드셔도 좋아요.</div>
+              </div>
+            </div>
+            <div class="result-ment result-ment-right" id="resultMent"></div>
+
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn primary big" id="btnGoHome" type="button">메인으로 가기</button>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
